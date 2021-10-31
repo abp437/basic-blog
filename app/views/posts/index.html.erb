@@ -1,0 +1,23 @@
+<% content_for :page_title, 'All Posts' %>
+
+<section class="section">
+  <div class="container">
+    <% @posts.each do |post| %>
+      <div class="card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <h2 class="title is-4"><%= link_to post.title, post %></h2>
+            </div>
+          </div>
+          <div class="content">
+            <p><%= post.content %></p>
+          </div>
+          <div class="comment-count">
+            <span class="tag is-rounded">0 comments</span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
