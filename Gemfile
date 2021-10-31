@@ -28,6 +28,9 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+# Bulma CSS for Rails Apps
+gem 'bulma-rails', '~> 0.9.2'
+
 # Make working with forms in Rails simple
 gem 'simple_form', '~> 5.1'
 
