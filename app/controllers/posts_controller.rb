@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :find_post_by_id, only: [:show, :edit, :update, :destroy]
+
   def index
     @posts = Post.all.order('created_at DESC')
   end
@@ -19,16 +21,12 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
-
     if @post.update(post_params)
       redirect_to @post
     else
@@ -37,8 +35,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-
     if @post.destroy
       redirect_to posts_path
     else
@@ -52,5 +48,11 @@ class PostsController < ApplicationController
     # Whenever we receive a request we receive it in the form of symbols
     # So, that's why we get these params as symbols
     params.require(:post).permit(:title, :content)
+  end
+
+  def find_post_by_id
+    # Here we are setting the instance variable to be used in the view file
+    # This variable is also available in the actions which use this callback function
+    @post = Post.find(params[:id])
   end
 end
