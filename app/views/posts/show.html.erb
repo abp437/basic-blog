@@ -33,7 +33,7 @@
 <section class="section comments">
   <div class="container">
     <h2 class="subtitle is-5">
-      <span class="has-text-weight-bold"><%= @post.comments.count %></span> Comments
+      <span class="has-text-weight-bold"><%= @post.comments.count %></span> <%= 'comment'.pluralize(@post.comments.count) %>
     </h2>
     <%# I didn't understand the line below, need to understand what it does %>
     <%= render @post.comments %>
